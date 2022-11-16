@@ -1,4 +1,4 @@
-'use strict';
+
 let number = Math.floor(Math.random() * 20) + 1;
 
 
@@ -8,29 +8,32 @@ var score = 20
 document.querySelector('.check').addEventListener('click',
     function () {
         let num = Number.parseInt(document.querySelector('.guess').value);
-        
-        if (!num) {document.querySelector('.message').textContent = 'Please enter a number'};
+        let prev = 0;
         if (num === number) {
             document.querySelector('.message').textContent = "Correct guess !!!";
             document.querySelector('.number').textContent = `${num}`;
             document.querySelector('body').style.backgroundColor = '#60b347';
-            document.querySelector('number').style.width = '30rem';
+            document.querySelector('.number').style.width = '30rem';
             document.querySelector('.score').textContent = score;
             if (score > highScore) {
                 highScore = score;
-                document.querySelector('.highscore').textContent = highScore;
             }
+            document.querySelector('.highscore').textContent = highScore;
+            return null;
         }
-        else if(num != number) {
+        else {
             document.querySelector('.message').textContent = num > number ? "Too high!!" : "Too low!!";
             if (score > 1) {
-                score--;
+                if (prev != num) {
+                    score--;
+                }
                 document.querySelector('.score').textContent = score;
             }
             else {
                 document.querySelector('.message').textContent = "You Lose!!!";
                 document.querySelector('.score').textContent = 0;
             }
+            prev = num;
         }
     }
 )
