@@ -22,19 +22,8 @@ document.querySelector('.check').addEventListener('click',
             document.querySelector('.highscore').textContent = highScore;
             return null;
         }
-        else if (num > number) {
-            document.querySelector('.message').textContent = "Too high!!";
-            if (score > 1) {
-                score--;
-                document.querySelector('.score').textContent = score;
-            }
-            else {
-                document.querySelector('.message').textContent = "You Lose!!!";
-                document.querySelector('.score').textContent = 0;
-            }
-        }
-        else if (num < number) {
-            document.querySelector('.message').textContent = "Too low!!";
+        else {
+            document.querySelector('.message').textContent = num > number ? "Too high!!" : "Too low!!";
             if (score > 1) {
                 score--;
                 document.querySelector('.score').textContent = score;
