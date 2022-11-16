@@ -48,10 +48,10 @@ document.querySelector('.check').addEventListener('click',
 
 document.querySelector('.again').addEventListener('click', function () {
     number = Math.floor(Math.random() * 20) + 1;
-    var newScore = 20;
+    score = 20;
     document.querySelector('.message').textContent = 'Start guessing...';
     document.querySelector('body').style.backgroundColor = '#222';
-    document.querySelector('.score').textContent = newScore;
+    document.querySelector('.score').textContent = score;
     document.querySelector('.number').textContent = '?';
     document.querySelector('.guess').value = '';
 });
